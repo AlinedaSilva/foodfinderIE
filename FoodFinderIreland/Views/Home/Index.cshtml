@@ -1,4 +1,5 @@
-﻿@{
+﻿@model string
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -11,10 +12,14 @@
     
     <div class="google_search">
         <center>
-            <form method="post" action="/Controllers/ProductsController/ActionResult" class="searchbar">
-                <input class="search" type="text" name="q" title="Search" maxlength="2048" autocomplete="off" style="width:100%" />
+            <form method="post" action="Home/MakeRequest" class="searchbar">
+                <input class="search" type="text" id ="q" name="q" title="Search" maxlength="2048" autocomplete="off" style="width:100%" />
                 <input type="submit" value="Go" name="search" class="searchbtn">
             </form>
+            @*@using (Html.BeginForm("MakeRequest", "Home"))
+            {
+                @Html.EditorFor()
+            }*@
         </center>
     </div>
-</div>
+
