@@ -29,5 +29,7 @@ namespace FoodFinderIreland.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<FoodFinderIreland.Models.Product> Products { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace FoodFinderIreland.Models
             [JsonProperty("UnitOfSale")]
             public int UnitOfSale { get; set; }
             [JsonProperty("description")]
-            public IList<string> LstDescription { get; set; }
+            public IEnumerator<string> LstDescription { get; set; }
             public string Description { get; set; }
             [JsonProperty("AverageSellingUnitWeight")]
             public decimal AverageSellingUnitWeight { get; set; }
