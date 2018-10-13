@@ -10,6 +10,7 @@ using FoodFinderIreland.Models;
 using System.Threading.Tasks;
 using System.Net.Http;
 
+
 namespace FoodFinderIreland.Controllers
 {
     public class ProductController : Controller
@@ -128,10 +129,10 @@ namespace FoodFinderIreland.Controllers
 
         public async Task<ActionResult> MakeRequest(string query)
         {
-            //System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+            System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
 
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "56ac439a92694577a2779f3d0ee0cd85");
 
             var uri = string.Format("https://dev.tescolabs.com/grocery/products/?query={0}&offset={1}&limit={2}", query, 0, 10);
 
@@ -140,7 +141,21 @@ namespace FoodFinderIreland.Controllers
             string body = await response.Content.ReadAsStringAsync();
             Console.WriteLine(body);
 
-            return View();
+            return View(body);
+
+            //public async Task<ActionResult> MakeRequest()
+            //{
+            //    //System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+
+            //    var client = new HttpClient();
+            //    var queryString = HttpUtility.ParseQueryString(string.Empty);
+            //    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "56ac439a92694577a2779f3d0ee0cd85");
+
+            //    var uri = "https://dev.tescolabs.com/grocery/products/?query={0}&offset={1}&limit={2}&" + queryString;
+
+            //    var response = await client.GetAsync(uri);
+            //    return View();
+            //}
         }
     }
 }
