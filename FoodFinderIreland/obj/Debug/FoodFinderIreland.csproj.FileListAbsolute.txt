@@ -68,3 +68,4 @@ C:\Users\New User\Documents\Higher Diploma in Computing Science - 022018\Final P
 C:\Users\New User\Documents\Higher Diploma in Computing Science - 022018\Final Project\FoodFinderIreland\FoodFinderIreland\obj\Debug\FoodFinderIreland.pdb
 C:\Users\New User\Documents\Higher Diploma in Computing Science - 022018\Final Project\FoodFinderIreland\FoodFinderIreland\bin\System.Net.Http.Formatting.dll
 C:\Users\New User\Documents\Higher Diploma in Computing Science - 022018\Final Project\FoodFinderIreland\FoodFinderIreland\bin\System.Net.Http.Formatting.xml
+C:\Users\New User\Documents\Higher Diploma in Computing Science - 022018\Final Project\FoodFinderIreland\FoodFinderIreland\obj\Debug\FoodFinderIreland.csprojResolveAssemblyReference.cache

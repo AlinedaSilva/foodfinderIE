@@ -133,7 +133,9 @@ namespace FoodFinderIreland.Controllers
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "56ac439a92694577a2779f3d0ee0cd85");
-
+            //query = "chocolate";
+           
+         
             var uri = string.Format("https://dev.tescolabs.com/grocery/products/?query={0}&offset={1}&limit={2}", query, 0, 10);
 
             var response = await client.GetAsync(uri);
