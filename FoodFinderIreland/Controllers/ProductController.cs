@@ -127,7 +127,7 @@ namespace FoodFinderIreland.Controllers
             base.Dispose(disposing);
         }
 
-        public async Task<ActionResult> MakeRequest(string query)
+        public async Task<ActionResult> MakeRequest(string q)
         {
             System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
 
@@ -136,7 +136,7 @@ namespace FoodFinderIreland.Controllers
             //query = "chocolate";
            
          
-            var uri = string.Format("https://dev.tescolabs.com/grocery/products/?query={0}&offset={1}&limit={2}", query, 0, 10);
+            var uri = string.Format("https://dev.tescolabs.com/grocery/products/?query={0}&offset={1}&limit={2}", q, 0, 10);
 
             var response = await client.GetAsync(uri);
             Console.WriteLine(response.ToString());
