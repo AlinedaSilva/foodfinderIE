@@ -13,8 +13,8 @@ namespace FoodFinderIreland.Models
             [JsonProperty("superDepartment")]
             public string SuperDepartment { get; set; }
             [JsonProperty("tpnb")]
-            public long TPNB { get; set; }
-            [JsonProperty("ContentsMeasureType")]
+            //public long TPNB { get; set; }
+            //[JsonProperty("ContentsMeasureType")]
             public string ContentsMeasureType { get; set; }
             [JsonProperty("name")]
             public string Name { get; set; }
@@ -23,8 +23,8 @@ namespace FoodFinderIreland.Models
             //[JsonProperty("description")]
             //public IEnumerator<string> LstDescription { get; set; }
             //public string Description { get; set; }
-            [JsonProperty("AverageSellingUnitWeight")]
-            public decimal AverageSellingUnitWeight { get; set; }
+            //[JsonProperty("AverageSellingUnitWeight")]
+            //public decimal AverageSellingUnitWeight { get; set; }
             [JsonProperty("UnitQuantity")]
             public string UnitQuantity { get; set; }
             [JsonProperty("id")]
@@ -35,8 +35,8 @@ namespace FoodFinderIreland.Models
             public string Department { get; set; }
             [JsonProperty("price")]
             public decimal Price { get; set; }
-            [JsonProperty("unitprice")]
-            public decimal UnitPrice { get; set; }
+            //[JsonProperty("unitprice")]
+            //public decimal UnitPrice { get; set; }
 
         }
     }
