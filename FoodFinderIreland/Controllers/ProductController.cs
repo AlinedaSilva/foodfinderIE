@@ -9,7 +9,10 @@ using System.Web.Mvc;
 using FoodFinderIreland.Models;
 using System.Threading.Tasks;
 using System.Net.Http;
-
+using Newtonsoft.Json;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json.Linq;
+using System.Windows.Forms;
 
 namespace FoodFinderIreland.Controllers
 {
@@ -127,37 +130,44 @@ namespace FoodFinderIreland.Controllers
             base.Dispose(disposing);
         }
 
-        public async Task<ActionResult> MakeRequest(string q)
+        // GET: Product/Create
+        public ActionResult SelectProduct()
+        {
+            return View();
+        }
+
+        public ActionResult NewSearch()
+        {
+            return View();
+        }
+        public async Task<ActionResult> MakeRequest(string q)// worked 
         {
             System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "56ac439a92694577a2779f3d0ee0cd85");
-            //query = "chocolate";
-           
-         
+
             var uri = string.Format("https://dev.tescolabs.com/grocery/products/?query={0}&offset={1}&limit={2}", q, 0, 10);
 
-            var response = await client.GetAsync(uri);
-            Console.WriteLine(response.ToString());
+            var response = await client.GetAsync(uri);            
             string body = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(body);
+            var result = JObject.Parse(body);
+            
+            IList<JToken> results = result["uk"]["ghs"]["products"]["results"].Children().ToList();
 
-            return View(body);
-
-            //public async Task<ActionResult> MakeRequest()
-            //{
-            //    //System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
-
-            //    var client = new HttpClient();
-            //    var queryString = HttpUtility.ParseQueryString(string.Empty);
-            //    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "56ac439a92694577a2779f3d0ee0cd85");
-
-            //    var uri = "https://dev.tescolabs.com/grocery/products/?query={0}&offset={1}&limit={2}&" + queryString;
-
-            //    var response = await client.GetAsync(uri);
-            //    return View();
-            //}
+            //// serialize JSON results into .NET objects
+            IList<Product> products = new List<Product>();
+            foreach (JToken r in results)
+            {
+                // JToken.ToObject is a helper method that uses JsonSerializer internally
+               Product product = r.ToObject<Product>();
+               products.Add(product);
+            }            
+             return View(products);           
         }
+
     }
 }
+
+
+
