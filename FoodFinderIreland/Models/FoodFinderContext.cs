@@ -6,12 +6,14 @@ using System.Data.Entity;
 
 namespace FoodFinderIreland.Models
 {
-    public class ProductsContext: DbContext, IProductsContext
+    public class FoodFinderContext: DbContext, IProductsContext
     {
-        public ProductsContext() : base("name=ProductsContext")
+        public FoodFinderContext() : base("FoodFinderContext")
         {
         }
-        public DbSet<Product> Products { get; set; }
+       // public DbSet<Product> Products { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<ShoppingList> ShoppingLists { get; set; }
         public void MarkAsModified(Object item)
         {
             Entry(item).State = EntityState.Modified;

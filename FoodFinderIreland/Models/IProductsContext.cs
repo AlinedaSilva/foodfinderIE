@@ -8,7 +8,8 @@ namespace FoodFinderIreland.Models
 {
     public interface IProductsContext : IDisposable
     {
-        DbSet<Product> Products { get; }
+        DbSet<Item> Items { get; }
+        DbSet<ShoppingList> ShoppingLists { get; }
         int SaveChanges();
         void MarkAsModified(Object item);
 

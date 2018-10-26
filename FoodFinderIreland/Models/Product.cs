@@ -10,8 +10,8 @@ namespace FoodFinderIreland.Models
     {
             [JsonProperty("image")]
             public string ImageURL { get; set; }
-            [JsonProperty("superDepartment")]
-            public string SuperDepartment { get; set; }
+            //[JsonProperty("superDepartment")]
+            //public string SuperDepartment { get; set; }
             //[JsonProperty("tpnb")]
             //public long TPNB { get; set; }
             [JsonProperty("ContentsMeasureType")]

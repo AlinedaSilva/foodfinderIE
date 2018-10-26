@@ -21,7 +21,7 @@ namespace FoodFinderIreland.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("FoodFinderContext", throwIfV1Schema: false)
         {
         }
 
@@ -31,5 +31,7 @@ namespace FoodFinderIreland.Models
         }
 
         public System.Data.Entity.DbSet<FoodFinderIreland.Models.Product> Products { get; set; }
+
+        public System.Data.Entity.DbSet<FoodFinderIreland.Models.ShoppingList> ShoppingLists { get; set; }
     }
 }

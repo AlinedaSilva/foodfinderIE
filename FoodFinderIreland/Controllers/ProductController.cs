@@ -129,12 +129,7 @@ namespace FoodFinderIreland.Controllers
             }
             base.Dispose(disposing);
         }
-
-        // GET: Product/Create
-        public ActionResult SelectProduct()
-        {
-            return View();
-        }
+        
 
         public ActionResult NewSearch()
         {
